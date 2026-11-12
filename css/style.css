@@ -680,7 +680,12 @@ p { margin: 0 0 1em; }
   .intro__lede { font-size: 22px; margin-bottom: 26px; }
   .intro__collage { padding: 0 0 56px 28px; margin-top: 8px; }
   .intro__main img { aspect-ratio: 4 / 4.4; }
-  .intro__sat { width: 38%; }
+  .intro__collage { padding: 28px 0 0 28px; }
+  .intro__sat { width: 34%; top: 0; bottom: auto; left: 0; border-width: 4px; }
+  .intro__sat img { aspect-ratio: 1 / 1; }
+  .intro__card { position: relative; right: auto; bottom: auto; top: auto; width: auto; margin-top: 16px; grid-template-columns: 64px 1fr; padding: 16px 18px; }
+  .intro__card img { width: 64px; }
+  .intro__card strong { font-size: 22px; }
 
   .benefits__media { padding-bottom: 56px; }
   .benefits__main { width: 88%; }
