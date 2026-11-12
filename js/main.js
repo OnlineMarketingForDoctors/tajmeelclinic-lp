@@ -225,11 +225,13 @@
   /* ---------- Video modal ---------- */
   const modal = $('#video-modal');
   const video = $('video', modal);
-  $('[data-video]').addEventListener('click', () => { modal.showModal(); video.play().catch(() => {}); });
+  const loop = $('.hero__video video');
+  if (reduce && loop) { loop.removeAttribute('autoplay'); loop.pause(); }
+  $('[data-video]').addEventListener('click', () => { if (loop) loop.pause(); modal.showModal(); video.play().catch(() => {}); });
   const closeVideo = () => { video.pause(); modal.close(); };
   $('[data-video-close]').addEventListener('click', closeVideo);
   modal.addEventListener('click', e => { if (e.target === modal) closeVideo(); });
-  modal.addEventListener('close', () => video.pause());
+  modal.addEventListener('close', () => { video.pause(); if (loop && !reduce) loop.play().catch(() => {}); });
 
   /* ---------- Booking form (GoHighLevel) ---------- */
   const form = $('#booking-form');

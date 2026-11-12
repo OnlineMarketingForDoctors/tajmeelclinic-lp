@@ -93,10 +93,7 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero" aria-labelledby="hero-title">
-  <picture class="hero__media">
-    <source media="(min-width: 900px)" srcset="img/hero.webp">
-    <img src="img/hero-sm.webp" alt="Dr Khalil preparing to implant hair grafts with a DHI implanter pen during an FUE hair transplant in Bournemouth" width="2400" height="1340" fetchpriority="high">
-  </picture>
+  <div class="hero__bg" aria-hidden="true"><span></span><span></span></div>
   <svg class="hero__line" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
     <path d="M640 960 C 760 760, 860 600, 1040 500 S 1300 330, 1500 300" />
   </svg>
@@ -127,31 +124,48 @@
           <svg class="rating__logo" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#00B67A"/><path fill="#fff" d="M12 4.6l2.1 6.3h6.6l-5.3 3.9 2 6.3-5.4-3.9-5.4 3.9 2-6.3-5.3-3.9h6.6z"/></svg>
           <span class="rating__body"><strong>Trustpilot</strong><small>5-star patient reviews</small></span>
         </li>
-        <li class="rating rating--img"><img src="img/logos/doctify.webp" alt="Recommended by patients on Doctify" width="173" height="108" loading="lazy"></li>
+        <li class="rating rating--doctify"><span class="rating__body"><small>Recommended by patients on</small><img src="img/logos/doctify-logo.webp" alt="Doctify" width="400" height="104"></span></li>
         <li class="rating rating--img"><img src="img/logos/whatclinic.webp" alt="WhatClinic 5 star rating" width="168" height="136" loading="lazy"></li>
       </ul>
     </div>
+
+    <div class="hero__stage">
+      <img class="hero__seal" src="img/tc-seal.webp" alt="" width="440" height="430" aria-hidden="true">
+      <button class="hero__video" type="button" data-video aria-label="Play Dave's hair transplant story with sound">
+        <video src="media/hero-loop.mp4" poster="img/hero-video-poster.webp" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+        <span class="hero__video-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="hero__video-cap"><strong>Watch Dave's story</strong><span>Filmed on his surgery day</span></span>
+      </button>
+      <blockquote class="hero__quote">
+        <p>No technicians. The surgeon, Dr Khalil. From start to finish.</p>
+        <cite>Dave, FUE patient</cite>
+      </blockquote>
+      <figure class="hero__proc">
+        <img src="img/procedure-real.webp" alt="Dr Khalil implanting grafts during a hair transplant at Tajmeel Clinic" width="800" height="934">
+        <figcaption>Dr Khalil in surgery</figcaption>
+      </figure>
+    <a class="mini-ba" href="#results" aria-label="See all before and after results">
+      <div class="mini-ba__frames">
+        <img src="img/ba/case-1-pair.webp" alt="Before and after FUE hair transplant, patient one" width="640" height="424" class="is-on">
+        <img src="img/ba/case-2-pair.webp" alt="Before and after FUE hair transplant, patient two" width="640" height="424" loading="lazy">
+        <img src="img/ba/case-3-pair.webp" alt="Before and after FUE hair transplant, patient three" width="640" height="424" loading="lazy">
+        <img src="img/ba/case-7-pair.webp" alt="Before and after FUE hair transplant, patient four" width="640" height="424" loading="lazy">
+      </div>
+      <div class="mini-ba__foot">
+        <span class="mini-ba__cap">Real patients of Dr Khalil</span>
+        <span class="mini-ba__dots" aria-hidden="true"><i class="is-on"></i><i></i><i></i><i></i></span>
+      </div>
+    </a>
+    </div>
   </div>
 
-  <a class="mini-ba" href="#results" aria-label="See all before and after results">
-    <div class="mini-ba__frames">
-      <img src="img/ba/case-1-pair.webp" alt="Before and after FUE hair transplant, patient one" width="640" height="424" class="is-on">
-      <img src="img/ba/case-2-pair.webp" alt="Before and after FUE hair transplant, patient two" width="640" height="424" loading="lazy">
-      <img src="img/ba/case-3-pair.webp" alt="Before and after FUE hair transplant, patient three" width="640" height="424" loading="lazy">
-      <img src="img/ba/case-7-pair.webp" alt="Before and after FUE hair transplant, patient four" width="640" height="424" loading="lazy">
-    </div>
-    <div class="mini-ba__foot">
-      <span class="mini-ba__cap">Real patients of Dr Khalil</span>
-      <span class="mini-ba__dots" aria-hidden="true"><i class="is-on"></i><i></i><i></i><i></i></span>
-    </div>
-  </a>
+
 </section>
 
 <!-- ============ REVIEWS TICKER ============ -->
 <section class="reviews" aria-labelledby="reviews-title">
   <div class="wrap reviews__head">
     <h2 id="reviews-title">What patients say after their hair transplant</h2>
-    <p>Verified reviews from Google and Trustpilot. Hover a card to pause.</p>
   </div>
   <div class="ticker" data-ticker>
     <div class="ticker__track">
@@ -219,8 +233,9 @@
         <img src="img/clinic-reception.webp" alt="Reception at Tajmeel Clinic, Bournemouth" width="1200" height="1600" loading="lazy">
       </figure>
       <div class="float-card intro__card">
-        <strong>Since 2017</strong>
-        <span>CQC registered hair transplant clinic on St Luke's Road, Bournemouth</span>
+        <img src="img/logos/cqc.webp" alt="Care Quality Commission, inspected and rated Good" width="182" height="136" loading="lazy">
+        <div><strong>Since 2017</strong>
+        <span>CQC registered hair transplant clinic on St Luke's Road, Bournemouth</span></div>
       </div>
     </div>
   </div>
@@ -386,13 +401,13 @@
         <img src="img/clinic-reception-2.webp" alt="" width="1000" height="1333" loading="lazy">
         <div class="tile__body"><h3>The surgeon you meet is the surgeon who operates</h3><p>Dr Khalil performs your entire surgery, from harvesting every graft to implanting the last one. No technicians making the incisions, no handovers.</p></div>
       </article>
-      <article class="tile tile--lagoon"><h3>Your donor area is protected</h3><p>The donor area is not unlimited. We plan for the hair loss you may have in ten years, not only the area that bothers you today.</p></article>
-      <article class="tile"><h3>Honest advice, never a hard sell</h3><p>Realistic expectations, risks and alternatives explained clearly. If surgery is not right for you, we will say so.</p></article>
+      <article class="tile tile--lagoon"><span class="tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z M9 12l2 2 4-4"/></svg></span><h3>Your donor area is protected</h3><p>The donor area is not unlimited. We plan for the hair loss you may have in ten years, not only the area that bothers you today.</p></article>
+      <article class="tile"><span class="tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z M8 9h8 M8 12h5"/></svg></span><h3>Honest advice, never a hard sell</h3><p>Realistic expectations, risks and alternatives explained clearly. If surgery is not right for you, we will say so.</p></article>
       <article class="tile tile--img">
         <img src="img/follow-up.webp" alt="" width="1400" height="939" loading="lazy">
         <div class="tile__body"><h3>Aftercare included, for a full year</h3><p>Follow-ups at 1, 6 and 12 months, second consultations at no extra cost and 24 hour WhatsApp support.</p></div>
       </article>
-      <article class="tile"><h3>Regulated, medical-grade care</h3><p>A CQC registered clinic led by a GMC registered doctor and BAHRS affiliate member, with strict infection control.</p></article>
+      <article class="tile tile--reg"><h3>Regulated, medical-grade care</h3><p>A CQC registered clinic led by a GMC registered doctor and BAHRS affiliate member, with strict infection control.</p><div class="tile__logos"><img src="img/logos/cqc.webp" alt="CQC rated Good" width="182" height="136" loading="lazy"><img src="img/logos/gmc.svg" alt="General Medical Council" width="140" height="48" loading="lazy"><img src="img/logos/bahrs.webp" alt="BAHRS affiliate member" width="164" height="136" loading="lazy"></div></article>
       <article class="tile tile--img tile--wide">
         <img src="img/clinic-exterior.webp" alt="" width="2048" height="1365" loading="lazy">
         <div class="tile__body"><h3>Easy to reach in Bournemouth</h3><p>On St Luke's Road with 12 free parking spaces and full disability access, serving patients across Dorset and Hampshire.</p></div>
@@ -411,11 +426,7 @@
       <figure class="doctor__sat parallax" data-speed="0.06">
         <img src="img/dr-khalil-desk.webp" alt="Dr Khalil at the reception of Tajmeel Clinic" width="800" height="1200" loading="lazy">
       </figure>
-      <button class="video-card" type="button" data-video aria-label="Play video: hair transplant at Tajmeel Clinic">
-        <img src="img/video-poster.webp" alt="" width="478" height="850" loading="lazy">
-        <span class="video-card__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-        <span class="video-card__cap">Watch inside a procedure</span>
-      </button>
+      <img class="doctor__seal" src="img/tc-seal.webp" alt="" width="440" height="430" aria-hidden="true" loading="lazy">
     </div>
     <div class="doctor__copy">
       <h2 id="doctor-title">Meet Dr Mohamad Khalil</h2>
@@ -437,7 +448,7 @@
       <li><img src="img/logos/cqc.webp" alt="Care Quality Commission, inspected and rated Good" width="182" height="136" loading="lazy"></li>
       <li><img src="img/logos/bahrs.webp" alt="BAHRS affiliate member, British Association of Hair Restoration Surgery" width="164" height="136" loading="lazy"></li>
       <li><img src="img/logos/google-badge.webp" alt="Google rating 4.7 from 94 reviews" width="173" height="108" loading="lazy"></li>
-      <li><img src="img/logos/doctify.webp" alt="Recommended by patients on Doctify" width="173" height="108" loading="lazy"></li>
+      <li class="logos__doctify"><small>Recommended by patients on</small><img src="img/logos/doctify-logo.webp" alt="Doctify" width="400" height="104" loading="lazy"></li>
       <li><img src="img/logos/whatclinic.webp" alt="WhatClinic 5 star rating" width="168" height="136" loading="lazy"></li>
     </ul>
   </div>
