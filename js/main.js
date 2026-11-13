@@ -22,6 +22,10 @@
     toTop.classList.toggle('is-on', y > 900);
   };
   window.addEventListener('scroll', onScroll, { passive: true });
+  $$('[data-to-top]').forEach(el => el.addEventListener('click', e => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  }));
   onScroll();
 
   /* active menu item */
@@ -148,7 +152,7 @@
 
   let baIndex = 0;
   const baPrev = $('[data-ba-prev]'), baNext = $('[data-ba-next]');
-  const perView = () => (window.innerWidth <= 899 ? 1 : 2);
+  const perView = () => (window.innerWidth <= 899 ? 1 : window.innerWidth <= 1100 ? 2 : 3);
   const baUpdate = () => {
     const max = CASES.length - perView();
     baIndex = Math.max(0, Math.min(baIndex, max));
@@ -253,7 +257,7 @@
       return;
     }
     if (!GHL_WEBHOOK_URL) {
-      setStatus('Online booking is being set up. Please call 01202 002203 or email info@tajmeelclinic.co.uk to book.', 'error');
+      setStatus('Online booking is being set up. Please call 01202 002203 to book your consultation.', 'error');
       return;
     }
     const btn = $('button[type=submit]', form);

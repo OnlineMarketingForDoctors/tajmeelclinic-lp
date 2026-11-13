@@ -267,7 +267,8 @@ p { margin: 0 0 1em; }
 .ba__nav, .journey__nav { display: flex; gap: 12px; }
 .ba__viewport { overflow: hidden; margin: -20px; padding: 20px; }
 .ba__track { display: flex; gap: 28px; transition: transform .6s cubic-bezier(.2, .8, .2, 1); }
-.ba-card { flex: 0 0 calc(50% - 14px); }
+.ba-card { flex: 0 0 calc((100% - 56px) / 3); }
+.ba-card figcaption strong { font-size: 16.5px; }
 .compare {
   position: relative; aspect-ratio: 400 / 455; border-radius: var(--r-xl); overflow: hidden;
   box-shadow: var(--sh-lift); background: var(--haze); user-select: none; touch-action: pan-y;
@@ -313,6 +314,56 @@ p { margin: 0 0 1em; }
 .benefit-list li:nth-child(odd) { transform: translateX(calc(-1 * clamp(0px, 4vw, 70px))); }
 .benefit-list h3 { font-size: 17px; margin-bottom: 6px; }
 .benefit-list p { font-size: 15px; margin: 0; line-height: 1.55; }
+
+/* ---------- Why FUE ---------- */
+.whyfue { padding: var(--sec-y) 0; background: linear-gradient(180deg, var(--white) 0%, var(--haze) 100%); }
+.whyfue__head { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 60px; align-items: end; margin-bottom: 48px; }
+.whyfue__head h2 { max-width: 14ch; }
+.whyfue__head p { margin: 0; }
+.whyfue__grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(28px, 4vw, 56px); align-items: start; }
+.diagram { counter-reset: d; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.diagram li { counter-increment: d; position: relative; padding: 18px 18px 22px; border-radius: var(--r-lg); background: var(--white); box-shadow: var(--sh-soft); text-align: center; }
+.diagram li::before { content: counter(d); position: absolute; left: 16px; top: 14px; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font: 500 17px var(--f-display); color: var(--white); background: var(--grad-cta); }
+.diagram svg { width: 100%; max-width: 190px; height: auto; margin: 0 auto 6px; display: block; overflow: visible; }
+.diagram h3 { font-size: 17px; margin-bottom: 4px; }
+.diagram p { margin: 0; font-size: 14.5px; line-height: 1.5; }
+.d-ring { fill: var(--mist); stroke: var(--lagoon); stroke-width: 2; stroke-dasharray: 9 9; }
+.diagram li:hover .d-ring { animation: ringSpin 12s linear infinite; }
+@keyframes ringSpin { to { stroke-dashoffset: -180; } }
+.d-skin { fill: #F1D3C0; }
+.d-epi { fill: #E9BFA7; }
+.d-hair { fill: none; stroke: var(--slate-deep); stroke-width: 2.6; stroke-linecap: round; }
+.d-bulb { fill: #C99A7E; }
+.d-tool { fill: var(--lagoon); }
+.d-tool-line { stroke: var(--lagoon-deep); stroke-width: 3; stroke-linecap: round; }
+.d-punch { fill: rgba(255, 255, 255, .55); stroke: var(--lagoon-deep); stroke-width: 2; }
+.d-hole { fill: #D9A88E; }
+.d-arrow { fill: none; stroke: var(--lagoon-deep); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+.d-dish { fill: var(--lagoon-deep); opacity: .85; }
+.d-dish-top { fill: var(--haze); stroke: var(--lagoon); stroke-width: 2.5; }
+.d-cold { fill: none; stroke: var(--lagoon); stroke-width: 2.5; stroke-linecap: round; }
+.compare-table { border-radius: var(--r-xl); background: var(--white); box-shadow: var(--sh-lift); padding: clamp(22px, 3vw, 36px); }
+.compare-table h3 { font-family: var(--f-display); font-variation-settings: "SOFT" 100; font-weight: 400; font-size: 26px; margin-bottom: 18px; }
+.compare-table table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 15px; }
+.compare-table th, .compare-table td { text-align: left; vertical-align: top; padding: 14px 12px; border-bottom: 1px solid var(--haze); }
+.compare-table tbody tr:last-child > * { border-bottom: 0; }
+.compare-table thead th { font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--slate); border-bottom: 2px solid var(--haze); }
+.compare-table thead th:nth-child(2) { color: var(--white); background: var(--grad-cta); border-radius: var(--r-sm) var(--r-sm) 0 0; border-bottom-color: transparent; }
+.compare-table tbody th { font-weight: 700; color: var(--ink); width: 26%; }
+.compare-table tbody td:nth-child(2) { background: rgba(213, 234, 239, .45); color: var(--ink); font-weight: 600; }
+.compare-table tbody tr:last-child td:nth-child(2) { border-radius: 0 0 var(--r-sm) var(--r-sm); }
+.compare-table td:nth-child(2)::before { content: ""; display: inline-block; width: 16px; height: 16px; margin: 0 8px -3px 0; border-radius: 50%; background: var(--lagoon-deep) center / 10px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E"); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* finance partners */
+.price-card__plans p { margin: 0 0 12px; }
+.finance { display: flex; flex-wrap: wrap; gap: 12px; }
+.finance li { flex: 1 1 140px; display: grid; place-items: center; min-height: 64px; padding: 10px 16px; border-radius: var(--r-sm); background: var(--white); box-shadow: 0 6px 16px -10px rgba(31, 88, 102, .45); }
+.finance img { max-height: 40px; width: auto; }
+
+/* footer credit */
+.ftr__omd { display: inline-flex; align-items: center; gap: 6px; }
+.ftr__omd img { width: 20px; height: 20px; }
 
 /* ---------- Candidates (full bleed) ---------- */
 .cand { position: relative; padding: var(--sec-y) 0; overflow: hidden; isolation: isolate; color: var(--slate); }
@@ -562,6 +613,8 @@ p { margin: 0 0 1em; }
 }
 
 @media (max-width: 1100px) {
+  .ba-card { flex-basis: calc(50% - 14px); }
+  .whyfue__grid { grid-template-columns: 1fr; }
   .hero__in { grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); }
   .hero__quote { width: 200px; }
   .hero__proc { width: 140px; }
@@ -666,6 +719,18 @@ p { margin: 0 0 1em; }
   .m-scroll::-webkit-scrollbar { display: none; }
   .m-scroll > * { flex: 0 0 78%; scroll-snap-align: start; transform: none !important; }
   .m-hint { display: flex !important; }
+  .whyfue__head { grid-template-columns: 1fr; margin-bottom: 24px; }
+  .diagram { gap: 10px; }
+  .diagram li { padding: 14px 10px 16px; }
+  .diagram li::before { width: 28px; height: 28px; font-size: 14px; left: 10px; top: 10px; }
+  .diagram svg { max-width: 130px; }
+  .diagram h3 { font-size: 15px; }
+  .diagram p { font-size: 13px; }
+  .compare-table { padding: 18px 14px; border-radius: var(--r-lg); }
+  .compare-table h3 { font-size: 22px; }
+  .compare-table table { font-size: 13.5px; }
+  .compare-table th, .compare-table td { padding: 11px 8px; }
+  .compare-table td:nth-child(2)::before { display: none; }
   .benefits__copy, .benefits__grid > *, .cand__in > *, .why .wrap > * { min-width: 0; }
   .ratings { display: grid; grid-template-columns: 1fr 1fr; width: 100%; max-width: none; }
   .rating { min-width: 0; padding: 10px 12px; }
