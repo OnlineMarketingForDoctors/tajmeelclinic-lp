@@ -284,5 +284,21 @@
   });
   $$('input, select, textarea', form).forEach(f => f.addEventListener('input', () => f.classList.remove('is-invalid')));
 
+  /* ---------- TikTok testimonials: load the player only when asked ---------- */
+  $$('[data-tiktok]').forEach(btn => btn.addEventListener('click', () => {
+    if (btn.classList.contains('is-playing')) return;
+    const f = document.createElement('iframe');
+    f.src = `https://www.tiktok.com/player/v1/${btn.dataset.tiktok}?autoplay=1&music_info=0&description=0&rel=0&native_context_menu=0&closed_caption=1`;
+    f.title = btn.getAttribute('aria-label').replace('Play ', '');
+    f.allow = 'autoplay; fullscreen; encrypted-media; picture-in-picture';
+    f.setAttribute('allowfullscreen', '');
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
+    const box = document.createElement('div');
+    box.className = 'vt__frame is-playing';
+    box.appendChild(f);
+    btn.replaceWith(box);
+    f.focus();
+  }));
+
   $$('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
 })();

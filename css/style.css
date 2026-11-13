@@ -306,7 +306,13 @@ p { margin: 0 0 1em; }
 .vt__link { display: inline-block; margin-top: 12px; font-size: 14px; font-weight: 700; color: #CDE7EE; text-decoration: underline; text-underline-offset: 3px; }
 .vt__link:hover { color: var(--white); }
 .vt__frame { position: relative; aspect-ratio: 9 / 16; border-radius: var(--r-lg); overflow: hidden; background: linear-gradient(160deg, #3E4B50, #263034); border: 6px solid rgba(255, 255, 255, .92); box-shadow: 0 30px 60px -28px rgba(0, 0, 0, .7); }
-.vt__frame::before { content: "Loading video"; position: absolute; inset: 0; display: grid; place-items: center; font-size: 13px; font-weight: 700; color: rgba(255, 255, 255, .5); }
+button.vt__frame { display: block; width: 100%; padding: 0; cursor: pointer; }
+.vt__frame > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+.vt__frame:hover > img { transform: scale(1.04); }
+.vt__frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(31, 60, 70, 0) 55%, rgba(31, 60, 70, .75) 100%); pointer-events: none; }
+.vt__frame.is-playing::after { display: none; }
+.vt__play { position: absolute; left: 50%; bottom: 22px; z-index: 2; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px 9px 10px; border-radius: var(--r-pill); background: rgba(255, 255, 255, .95); color: var(--lagoon-ink); font: 800 14px var(--f-body); white-space: nowrap; animation: pulse 2.4s infinite; }
+.vt__play svg { width: 28px; height: 28px; padding: 7px 6px 7px 8px; border-radius: 50%; fill: var(--white); background: var(--grad-cta); }
 .vt__frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .vtest__more { display: inline-flex; margin-top: 70px; font-weight: 800; color: var(--white); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--lagoon); }
 .vtest .m-hint { color: var(--lagoon); }
