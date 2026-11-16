@@ -932,5 +932,5 @@ button.vt__frame { display: block; width: 100%; padding: 0; cursor: pointer; }
 }
 
 /* GoHighLevel form embed inside the white booking card */
-.form--embed { gap: 10px; padding-bottom: clamp(14px, 2vw, 22px); }
+.form--embed { gap: clamp(20px, 2.4vw, 30px); padding-bottom: clamp(14px, 2vw, 22px); }
 .form--embed iframe { display: block; width: 100%; min-height: 0; margin: 0; }
