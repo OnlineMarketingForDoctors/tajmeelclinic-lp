@@ -2,12 +2,6 @@
 (() => {
   'use strict';
 
-  /* ------------------------------------------------------------
-     GoHighLevel form connection.
-     Paste the GHL inbound webhook URL (Automation > Workflows >
-     Inbound Webhook trigger) between the quotes below.
-     ------------------------------------------------------------ */
-  const GHL_WEBHOOK_URL = '';
 
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
@@ -237,52 +231,6 @@
   modal.addEventListener('click', e => { if (e.target === modal) closeVideo(); });
   modal.addEventListener('close', () => { video.pause(); if (loop && !reduce) loop.play().catch(() => {}); });
 
-  /* ---------- Booking form (GoHighLevel) ---------- */
-  const form = $('#booking-form');
-  const status = $('.form__status', form);
-  const setStatus = (msg, type) => { status.textContent = msg; status.className = 'form__status ' + (type ? 'is-' + type : ''); };
-
-  form.addEventListener('submit', async e => {
-    e.preventDefault();
-    if (form.company.value) return; /* spam trap */
-    let firstBad = null;
-    $$('[required]', form).forEach(f => {
-      const bad = f.type === 'checkbox' ? !f.checked : !f.value.trim() || (f.type === 'email' && !/^\S+@\S+\.\S+$/.test(f.value));
-      f.classList.toggle('is-invalid', bad);
-      if (bad && !firstBad) firstBad = f;
-    });
-    if (firstBad) {
-      setStatus('Please fill in the highlighted fields so we can contact you.', 'error');
-      firstBad.focus();
-      return;
-    }
-    if (!GHL_WEBHOOK_URL) {
-      setStatus('Online booking is being set up. Please call 01202 002203 to book your consultation.', 'error');
-      return;
-    }
-    const btn = $('button[type=submit]', form);
-    btn.disabled = true; btn.textContent = 'Sending your request';
-    const data = Object.fromEntries(new FormData(form));
-    delete data.company;
-    Object.assign(data, {
-      full_name: `${data.first_name} ${data.last_name}`.trim(),
-      treatment: 'FUE Hair Transplant',
-      page_url: location.href,
-      submitted_at: new Date().toISOString()
-    });
-    new URLSearchParams(location.search).forEach((v, k) => { if (/^(utm_|gclid|fbclid)/.test(k)) data[k] = v; });
-    try {
-      const res = await fetch(GHL_WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
-      if (!res.ok) throw new Error(res.status);
-      form.classList.add('is-sent');
-      setStatus('Thank you. Your consultation request has been sent and our team will be in touch shortly.', 'ok');
-      window.dataLayer && window.dataLayer.push({ event: 'generate_lead', form: 'fue_consultation' });
-    } catch (err) {
-      btn.disabled = false; btn.textContent = 'Request my consultation';
-      setStatus('Your request did not send. Please try again, or call us on 01202 002203.', 'error');
-    }
-  });
-  $$('input, select, textarea', form).forEach(f => f.addEventListener('input', () => f.classList.remove('is-invalid')));
 
   /* ---------- TikTok testimonials: load the player only when asked ---------- */
   $$('[data-tiktok]').forEach(btn => btn.addEventListener('click', () => {

@@ -635,37 +635,28 @@
       </ul>
     </div>
 
-    <form class="form" id="booking-form" novalidate>
+    <div class="form form--embed">
       <h3>Request your consultation</h3>
-      <div class="form__row">
-        <label>First name<input name="first_name" autocomplete="given-name" required></label>
-        <label>Last name<input name="last_name" autocomplete="family-name" required></label>
-      </div>
-      <div class="form__row">
-        <label>Email<input type="email" name="email" autocomplete="email" required></label>
-        <label>Phone<input type="tel" name="phone" autocomplete="tel" required></label>
-      </div>
-      <label>How did you hear about us?
-        <select name="source" required>
-          <option value="">Choose an option</option>
-          <option>Google search</option>
-          <option>Google Maps</option>
-          <option>Facebook</option>
-          <option>Instagram</option>
-          <option>TikTok</option>
-          <option>Doctify</option>
-          <option>WhatClinic</option>
-          <option>Trustpilot</option>
-          <option>Recommended by a friend or family member</option>
-          <option>Other</option>
-        </select>
-      </label>
-      <label>Message<textarea name="message" rows="4" placeholder="Tell us about your hair loss and any questions you have"></textarea></label>
-      <label class="form__check"><input type="checkbox" name="consent" required> I agree to Tajmeel Clinic contacting me about my enquiry.</label>
-      <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <button class="btn btn--primary btn--block btn--lg" type="submit">Request my consultation</button>
-      <p class="form__status" role="status" aria-live="polite"></p>
-    </form>
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/form/hCMOEfQOkJV4tt1LAoVx"
+        style="width:100%;height:671px;border:none;border-radius:12px"
+        id="inline-hCMOEfQOkJV4tt1LAoVx"
+        data-layout="{'id':'INLINE'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="LP Form"
+        data-height="671"
+        data-layout-iframe-id="inline-hCMOEfQOkJV4tt1LAoVx"
+        data-form-id="hCMOEfQOkJV4tt1LAoVx"
+        data-cookie-consent="true"
+        data-cookie-consent-provider="auto"
+        title="Request your consultation">
+      </iframe>
+    </div>
   </div>
 </section>
 
@@ -713,6 +704,7 @@
   </video>
 </dialog>
 
+<script src="https://link.msgsndr.com/js/form_embed.js" defer></script>
 <script src="js/main.js" defer></script>
 </body>
 </html>
