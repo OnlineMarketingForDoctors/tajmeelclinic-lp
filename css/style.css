@@ -150,8 +150,8 @@ p { margin: 0 0 1em; }
 .hero__in { width: 100%; max-width: 1440px; margin: 0 auto; padding: calc(var(--hdr-h) + 28px) var(--gutter) 48px; display: grid; grid-template-columns: minmax(0, 600px) minmax(0, 1fr); gap: 40px; align-items: center; }
 .hero__stage { position: relative; height: min(720px, calc(100svh - var(--hdr-h) - 60px)); min-height: 560px; }
 .hero__video { position: absolute; left: 44%; top: 50%; transform: translate(-50%, -50%); height: 92%; aspect-ratio: 478 / 850; padding: 0; border: 8px solid var(--white); border-radius: 36px; overflow: hidden; cursor: pointer; background: var(--slate); box-shadow: var(--sh-float), 0 0 0 1px rgba(46, 124, 144, .08); z-index: 2; }
-.hero__video video { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .8s ease; }
-.hero__video:hover video { transform: scale(1.04); }
+.hero__video > img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .8s ease; }
+.hero__video:hover > img { transform: scale(1.04); }
 .hero__video-play { justify-self: start; display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; padding: 9px 16px 9px 10px; border-radius: var(--r-pill); background: rgba(255, 255, 255, .95); color: var(--lagoon-ink); font: 800 13.5px var(--f-body); animation: pulse 2.4s infinite; }
 .hero__video-play svg { width: 26px; height: 26px; padding: 6px 5px 6px 7px; border-radius: 50%; fill: var(--white); background: var(--grad-cta); }
 .hero__video:hover .hero__video-play { background: var(--white); }
@@ -934,3 +934,7 @@ button.vt__frame { display: block; width: 100%; padding: 0; cursor: pointer; }
 /* GoHighLevel form embed inside the white booking card */
 .form--embed { gap: clamp(20px, 2.4vw, 30px); padding-bottom: clamp(14px, 2vw, 22px); }
 .form--embed iframe { display: block; width: 100%; min-height: 0; margin: 0; }
+
+/* hero video modal: TikTok player */
+.video-modal__frame { width: min(400px, 90vw); aspect-ratio: 9 / 16; max-height: 86vh; border-radius: var(--r-lg); overflow: hidden; background: #000; }
+.video-modal__frame iframe { width: 100%; height: 100%; border: 0; display: block; }

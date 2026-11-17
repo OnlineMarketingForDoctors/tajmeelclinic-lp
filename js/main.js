@@ -220,16 +220,18 @@
   grafts.addEventListener('input', calc);
   calc();
 
-  /* ---------- Video modal ---------- */
+  /* ---------- Hero video: plays the patient's TikTok in a modal ---------- */
   const modal = $('#video-modal');
-  const video = $('video', modal);
-  const loop = $('.hero__video video');
-  if (reduce && loop) { loop.removeAttribute('autoplay'); loop.pause(); }
-  $('[data-video]').addEventListener('click', () => { if (loop) loop.pause(); modal.showModal(); video.play().catch(() => {}); });
-  const closeVideo = () => { video.pause(); modal.close(); };
+  const frameBox = $('[data-video-frame]', modal);
+  $('[data-video]').addEventListener('click', e => {
+    const id = e.currentTarget.dataset.tiktokId;
+    frameBox.innerHTML = `<iframe src="https://www.tiktok.com/player/v1/${id}?autoplay=1&music_info=0&description=0&rel=0&native_context_menu=0&closed_caption=1" title="Patient hair transplant video on TikTok" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
+    modal.showModal();
+  });
+  const closeVideo = () => modal.close();
   $('[data-video-close]').addEventListener('click', closeVideo);
   modal.addEventListener('click', e => { if (e.target === modal) closeVideo(); });
-  modal.addEventListener('close', () => { video.pause(); if (loop && !reduce) loop.play().catch(() => {}); });
+  modal.addEventListener('close', () => { frameBox.innerHTML = ''; });
 
 
   /* ---------- TikTok testimonials: load the player only when asked ---------- */
