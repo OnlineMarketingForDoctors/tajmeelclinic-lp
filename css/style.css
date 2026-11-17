@@ -938,3 +938,9 @@ button.vt__frame { display: block; width: 100%; padding: 0; cursor: pointer; }
 /* hero video modal: TikTok player */
 .video-modal__frame { width: min(400px, 90vw); aspect-ratio: 9 / 16; max-height: 86vh; border-radius: var(--r-lg); overflow: hidden; background: #000; }
 .video-modal__frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+/* booking card heading and PRP offer */
+.form__head { display: grid; gap: 12px; }
+.form__head h3 { margin: 0; }
+.form__offer { display: flex; align-items: flex-start; gap: 10px; margin: 0; padding: 12px 14px; border-radius: var(--r-sm); background: var(--grad-haze); color: var(--ink); font-size: 15px; font-weight: 600; line-height: 1.45; }
+.form__offer span { flex: none; display: grid; place-items: center; width: 22px; height: 22px; margin-top: 1px; border-radius: 50%; background: var(--grad-cta); color: var(--white); font-weight: 800; font-size: 15px; line-height: 1; }
