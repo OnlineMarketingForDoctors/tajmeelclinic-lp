@@ -300,7 +300,7 @@ p { margin: 0 0 1em; }
 .vtest__head { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 60px; align-items: end; margin-bottom: 44px; }
 .vtest__head h2 { color: var(--white); max-width: 15ch; }
 .vtest__head p { margin: 0; max-width: 46ch; font-size: 18px; }
-.vtest__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 340px)); justify-content: center; gap: 28px; }
+.vtest__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 340px)); justify-content: center; gap: 36px; }
 .vt { min-width: 0; }
 .vt__link { display: inline-block; margin-top: 12px; font-size: 14px; font-weight: 700; color: #CDE7EE; text-decoration: underline; text-underline-offset: 3px; }
 .vt__link:hover { color: var(--white); }
@@ -633,7 +633,7 @@ button.vt__frame { display: block; width: 100%; padding: 0; cursor: pointer; }
 }
 
 @media (max-width: 1100px) {
-  .vtest__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+  .vtest__grid { grid-template-columns: repeat(2, minmax(0, 300px)); gap: 24px; }
   .ba-card { flex-basis: calc(50% - 14px); }
   .whyfue__grid { grid-template-columns: 1fr; }
   .hero__in { grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); }
@@ -944,3 +944,13 @@ button.vt__frame { display: block; width: 100%; padding: 0; cursor: pointer; }
 .form__head h3 { margin: 0; }
 .form__offer { display: flex; align-items: flex-start; gap: 10px; margin: 0; padding: 12px 14px; border-radius: var(--r-sm); background: var(--grad-haze); color: var(--ink); font-size: 15px; font-weight: 600; line-height: 1.45; }
 .form__offer span { flex: none; display: grid; place-items: center; width: 22px; height: 22px; margin-top: 1px; border-radius: 50%; background: var(--grad-cta); color: var(--white); font-weight: 800; font-size: 15px; line-height: 1; }
+
+/* two patient videos: show both side by side on mobile, no swiping */
+@media (max-width: 899px) {
+  .vtest__grid.m-scroll { display: grid !important; grid-template-columns: 1fr 1fr; gap: 12px; overflow: visible; margin: 0; padding: 0; }
+  .vtest__grid > .vt { flex-basis: auto; }
+  .vtest .m-hint { display: none !important; }
+  .vt__frame { border-width: 4px; }
+  .vt__play { bottom: 12px; padding: 6px 12px 6px 6px; font-size: 12px; }
+  .vt__play svg { width: 22px; height: 22px; }
+}
